@@ -1,0 +1,14 @@
+{
+	"dependencies": {
+		"bower": "*",
+		"yargs": "*",
+		"gulp": "*",
+		"gulp-clean": "*",
+		"gulp-task-listing": "*",
+		"gulp-bower": "*",
+		"gulp-symlink": "*"
+	},
+	"scripts": {
+		"postinstall": "./node_modules/.bin/gulp"
+	}
+}
