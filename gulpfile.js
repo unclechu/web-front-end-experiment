@@ -96,7 +96,7 @@ gulp.task('js', ['clean-js', 'bower', 'jshint'], function () {
 					exports: '',
 				},
 			},
-			//debug: !production,
+			debug: !production,
 		}))
 		.pipe(gulpif(production, uglify({
 			preserveComments: 'some',
