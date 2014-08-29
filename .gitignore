@@ -4,3 +4,4 @@ gulp
 
 css/build
 js/build
+*.html

@@ -18,6 +18,7 @@ var browserify = require('gulp-browserify');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
+var jade = require('gulp-jade');
 
 gulp.task('help', taskListing);
 
@@ -94,11 +95,33 @@ gulp.task('js', ['clean-js', 'bower', 'jshint'], function () {
 
 // js }}}1
 
+// jade {{{1
+
+gulp.task('clean-jade', function () {
+	return gulp
+		.src('./*.html')
+		.pipe(clean());
+});
+
+gulp.task('jade', ['clean-jade'], function () {
+	return gulp
+		.src('./jade/*.jade')
+		.pipe(jade({
+			locals: {
+				pageTitle: 'Backbone project',
+			},
+		}))
+		.pipe(gulp.dest('./'));
+});
+
+// jade }}}1
+
 // clean {{{1
 
 gulp.task('clean', [
 	'clean-css',
 	'clean-js',
+	'clean-jade',
 ]);
 
 gulp.task('distclean', ['clean'], function () {
@@ -129,4 +152,5 @@ gulp.task('default', [
 	'gulp-symlink',
 	'css',
 	'js',
+	'jade',
 ]);

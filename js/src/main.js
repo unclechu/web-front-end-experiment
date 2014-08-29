@@ -6,5 +6,5 @@
 var $ = require('jquery');
 
 $(function () {
-	$('p').css('background', 'orange');
+	$('h1').css('background', 'orange');
 });
