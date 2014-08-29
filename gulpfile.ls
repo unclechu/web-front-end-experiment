@@ -79,7 +79,7 @@ gulp.task 'jshint' ->
 		}
 		.pipe jshint.reporter stylish
 
-gulp.task 'js' ['clean-js' 'bower' 'jshint'] ->
+gulp.task 'js-dare' ['clean-js'] ->
 	gulp
 		.src './js/src/main.ls' read: false
 		.pipe browserify {
@@ -100,6 +100,9 @@ gulp.task 'js' ['clean-js' 'bower' 'jshint'] ->
 		.pipe gulpif production, uglify preserveComments: 'some'
 		.pipe rename 'build.js'
 		.pipe gulp.dest './js/build/'
+
+gulp.task 'js-fast' ['jshint' 'js-dare']
+gulp.task 'js' ['bower' 'js-fast']
 
 # js }}}1
 
