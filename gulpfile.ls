@@ -134,6 +134,9 @@ gulp.task 'jade' ['clean-jade'] ->
 		}
 		.pipe gulp.dest './'
 
+gulp.task 'jade-watch' ['jade'] ->
+	gulp.watch './jade/*.jade', ['jade']
+
 # jade }}}1
 
 # clean {{{1
