@@ -55,7 +55,11 @@ gulp.task 'clean-js' ->
 
 gulp.task 'jshint' ->
 	gulp
-		.src [ './js/src/**/*.ls' './js/src/**/*.js' ]
+		.src [
+			'./gulpfile.ls'
+			'./js/src/**/*.ls'
+			'./js/src/**/*.js'
+		]
 		.pipe gulpif /\.ls$/, livescript()
 		.pipe jshint {
 			browser: true
@@ -64,6 +68,7 @@ gulp.task 'jshint' ->
 			indent: 1
 			sub: false
 			unused: true
+			eqnull: true
 			predef: [ 'define' ]
 		}
 		.pipe jshint.reporter stylish
@@ -134,7 +139,7 @@ gulp.task 'distclean' ['clean'] ->
 gulp.task 'gulp-symlink' ->
 	gulp
 		.src './node_modules/.bin/gulp'
-		.pipe symlink (file) -> ''
+		.pipe symlink -> ''
 
 # deploy }}}1
 
