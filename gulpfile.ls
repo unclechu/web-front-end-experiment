@@ -104,13 +104,13 @@ gulp.task 'js-dare' ['clean-js'] ->
 gulp.task 'js-fast' ['jshint' 'js-dare']
 gulp.task 'js' ['bower' 'js-fast']
 
-gulp.task 'js-watch' ['js'] ->
+gulp.task 'watch-js' ['js'] ->
 	gulp.watch [
 		'./js/src/**/*.ls'
 		'./js/src/**/*.js'
 	], ['js-fast']
 
-gulp.task 'js-watch-dare' ['js'] ->
+gulp.task 'watch-js-dare' ['js'] ->
 	gulp.watch [
 		'./js/src/**/*.ls'
 		'./js/src/**/*.js'
@@ -134,7 +134,7 @@ gulp.task 'jade' ['clean-jade'] ->
 		}
 		.pipe gulp.dest './'
 
-gulp.task 'jade-watch' ['jade'] ->
+gulp.task 'watch-jade' ['jade'] ->
 	gulp.watch './jade/*.jade', ['jade']
 
 # jade }}}1
@@ -167,11 +167,11 @@ gulp.task 'gulp-symlink' ->
 
 # deploy }}}1
 
-#gulp.task 'watch' [
-	#'watch-css'
-	#'watch-js'
-	#'watch-jade'
-#]
+gulp.task 'watch' [
+	'watch-css'
+	'watch-js'
+	'watch-jade'
+]
 
 gulp.task 'default' [
 	'gulp-symlink'
