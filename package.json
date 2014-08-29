@@ -17,7 +17,8 @@
 		"jshint-stylish": "*",
 		"gulp-jade": "*",
 		"liveify": "*",
-		"gulp-livescript": "*"
+		"gulp-livescript": "*",
+		"LiveScript": "*"
 	},
 	"scripts": {
 		"postinstall": "./node_modules/.bin/gulp --production"
