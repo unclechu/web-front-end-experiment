@@ -6,9 +6,17 @@
 		"gulp-clean": "*",
 		"gulp-task-listing": "*",
 		"gulp-bower": "*",
-		"gulp-symlink": "*"
+		"gulp-symlink": "*",
+		"gulp-sass": "*",
+		"gulp-rename": "*",
+		"gulp-if": "*",
+		"gulp-minify-css": "*",
+		"gulp-browserify": "*",
+		"gulp-uglify": "*",
+		"gulp-jshint": "*",
+		"jshint-stylish": "*"
 	},
 	"scripts": {
-		"postinstall": "./node_modules/.bin/gulp"
+		"postinstall": "./node_modules/.bin/gulp --production"
 	}
 }

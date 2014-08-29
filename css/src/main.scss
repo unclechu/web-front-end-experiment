@@ -1,0 +1,20 @@
+/**
+ * @author Viacheslav Lotsmanov
+ * @license GNU/GPLv3 by Free Software Foundation
+ */
+
+@import 'libs/reset200802';
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+html body {
+	background: white;
+	color: black;
+
+	h1 {
+		color: orange;
+	}
+}
