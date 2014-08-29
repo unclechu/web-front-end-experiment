@@ -4,7 +4,8 @@
  */
 
 var $ = require('jquery');
+var backbone = require('backbone');
 
 $(function () {
-	$('h1').css('background', 'orange');
+	console.log($, backbone);
 });

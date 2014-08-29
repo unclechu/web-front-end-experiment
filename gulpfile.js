@@ -83,6 +83,14 @@ gulp.task('js', ['clean-js', 'bower', 'jshint'], function () {
 					path: './bower_components/jquery/dist/jquery',
 					exports: '',
 				},
+				underscore: {
+					path: './bower_components/underscore/underscore',
+					exports: '',
+				},
+				backbone: {
+					path: './bower_components/backbone/backbone',
+					exports: '',
+				},
 			},
 			debug: !production,
 		}))
