@@ -44,6 +44,12 @@ gulp.task 'css' ['clean-css'] ->
 		.pipe rename 'build.css'
 		.pipe gulp.dest './css/build/'
 
+gulp.task 'watch-css' ['css'] ->
+	gulp.watch [
+		'./css/src/**/*.scss'
+		'./css/src/**/*.css'
+	], ['css']
+
 # css }}}1
 
 # js {{{1
@@ -142,6 +148,12 @@ gulp.task 'gulp-symlink' ->
 		.pipe symlink -> ''
 
 # deploy }}}1
+
+#gulp.task 'watch' [
+	#'watch-css'
+	#'watch-js'
+	#'watch-jade'
+#]
 
 gulp.task 'default' [
 	'gulp-symlink'
