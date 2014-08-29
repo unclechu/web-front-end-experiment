@@ -62,8 +62,8 @@ gulp.task('clean-js', function () {
 
 gulp.task('jshint', function () {
 	return gulp
-		.src('./js/src/**/*.ls')
-		.pipe(livescript())
+		.src(['./js/src/**/*.ls', './js/src/**/*.js'])
+		.pipe(gulpif(/\.ls$/, livescript()))
 		.pipe(jshint({
 			"browser": true,
 			"node": true,
