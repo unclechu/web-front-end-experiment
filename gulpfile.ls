@@ -104,6 +104,18 @@ gulp.task 'js-dare' ['clean-js'] ->
 gulp.task 'js-fast' ['jshint' 'js-dare']
 gulp.task 'js' ['bower' 'js-fast']
 
+gulp.task 'js-watch' ['js'] ->
+	gulp.watch [
+		'./js/src/**/*.ls'
+		'./js/src/**/*.js'
+	], ['js-fast']
+
+gulp.task 'js-watch-dare' ['js'] ->
+	gulp.watch [
+		'./js/src/**/*.ls'
+		'./js/src/**/*.js'
+	], ['js-dare']
+
 # js }}}1
 
 # jade {{{1

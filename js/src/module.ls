@@ -3,4 +3,4 @@
  * @license GNU/GPLv3 by Free Software Foundation
  */
 
-window.alert 'Module testing'
+window.alert 'Alert from module...'
