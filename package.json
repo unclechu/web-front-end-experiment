@@ -15,7 +15,9 @@
 		"gulp-uglify": "*",
 		"gulp-jshint": "*",
 		"jshint-stylish": "*",
-		"gulp-jade": "*"
+		"gulp-jade": "*",
+		"liveify": "*",
+		"gulp-livescript": "*"
 	},
 	"scripts": {
 		"postinstall": "./node_modules/.bin/gulp --production"

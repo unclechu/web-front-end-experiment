@@ -19,6 +19,7 @@ var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var jade = require('gulp-jade');
+var livescript = require('gulp-livescript');
 
 gulp.task('help', taskListing);
 
@@ -61,7 +62,8 @@ gulp.task('clean-js', function () {
 
 gulp.task('jshint', function () {
 	return gulp
-		.src('./js/src/**/*.js')
+		.src('./js/src/**/*.ls')
+		.pipe(livescript())
 		.pipe(jshint({
 			"browser": true,
 			"node": true,
@@ -76,23 +78,25 @@ gulp.task('jshint', function () {
 
 gulp.task('js', ['clean-js', 'bower', 'jshint'], function () {
 	return gulp
-		.src('./js/src/main.js')
+		.src('./js/src/main.ls', { read: false })
 		.pipe(browserify({
+			transform: ['liveify'],
+			extensions: ['.ls'],
 			shim: {
 				jquery: {
-					path: './bower_components/jquery/dist/jquery',
+					path: './bower_components/jquery/dist/jquery.js',
 					exports: '',
 				},
 				underscore: {
-					path: './bower_components/underscore/underscore',
+					path: './bower_components/underscore/underscore.js',
 					exports: '',
 				},
 				backbone: {
-					path: './bower_components/backbone/backbone',
+					path: './bower_components/backbone/backbone.js',
 					exports: '',
 				},
 			},
-			debug: !production,
+			//debug: !production,
 		}))
 		.pipe(gulpif(production, uglify({
 			preserveComments: 'some',
